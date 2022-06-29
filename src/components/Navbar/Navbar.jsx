@@ -1,8 +1,13 @@
 import * as React from "react";
 import AvatarIcon from "../AvatarIcon/AvatarIcon";
 import "./Navbar.css";
+import { useEffect, useState } from "react";
 
 export default function Navbar({ navLinks }) {
+  // useEffect(() => {
+  //   console.log(navLinks + " here is my navLinks in the NAVBAR component");
+  // }, []);
+
   return (
     <nav>
       <div className="navbar-container">
@@ -19,8 +24,7 @@ export function NavLinks({ navLinks }) {
   return (
     <ul className="nav-links">
       {navLinks.map((link, idx) => {
-        //                             unique key
-        return <NavLink navLink={link} key={idx} />;
+        return <NavLink key={idx} navLink={link} />;
       })}
     </ul>
   );

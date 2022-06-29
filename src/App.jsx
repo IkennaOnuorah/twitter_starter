@@ -9,17 +9,23 @@ import { useState } from "react";
 export default function App() {
   const [userProfile, setUserProfile] = useState(codepathUserProfile);
   const [tweets, setTweets] = useState([firstTweet]);
+  const [tweetText, setTweetText] = useState("");
+
   return (
     <div className="app">
       <Navbar navLinks={navLinks} />
       <main>
-        <UserProfile
+        <UserProfile userProfile={userProfile} />
+        <Feed
+          tweets={tweets}
+          setTweets={setTweets}
           userProfile={userProfile}
-          setUserProfile={setUserProfile}
+          tweetText={tweetText}
+          setTweetText={setTweetText}
         />
-        <Feed tweets={tweets} setTweets={setTweets} userProfile={userProfile} />
         <Advertisements />
       </main>
     </div>
   );
 }
+
